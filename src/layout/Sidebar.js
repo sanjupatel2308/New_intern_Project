@@ -34,7 +34,7 @@ function Sidebar() {
         </Link>
       </p>
       <p style={{ cursor: "pointer" }}>
-       <Link to="/enrollmentslist" style={{ color: "#fff", textDecoration: "none" }}>
+       <Link to="/enrollments-list" style={{ color: "#fff", textDecoration: "none" }}>
           Enrollments List
         </Link>
       </p>

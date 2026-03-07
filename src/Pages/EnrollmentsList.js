@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import Nav from "../Components/Nav/Nav";
 import Sidebar from "../layout/Sidebar";
+import DashboardLayout from "../layout/DashboardLayout";
 
 
 const EnrollmentsList = () => {
@@ -115,8 +116,8 @@ const EnrollmentsList = () => {
 
     return <>
         <Nav/>
-        <Sidebar/>
-        <div className="container mt-4">
+      <DashboardLayout/>
+        <div className="container mt-4" style={{ position: "absolute", top: "15%", left: "15%", backgroundColor: "white", padding: "20px", borderRadius: "8px" }}>
             <h3>All Enrollments</h3>
 
             {/* 🔎 Search + Filter */}

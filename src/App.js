@@ -31,6 +31,8 @@ import EnrollmentsList from './Pages/EnrollmentsList';
 import UserProfile from './Components/User_profile/UserProfile';
 import ScrollToTop from './ScrollToTop';
 import AdminAddCourse from './Pages/AdminAddCourse';
+import ProtectedRoute from './Components/ProtectedRoute';
+import DashboardHome from './layout/DashboardHome';
 
 
 
@@ -75,15 +77,13 @@ function App() {
   return (
    
     <Routes>
-
-      
-        {/* Admin Route */}
-        <Route
+{/* ------------------------------------------------------------------------- */}
+        {/* <Route
           path="/admin"
           element={
             user ? (
               <DashboardLayout>
-                {/* <UsersPage /> */}
+              
                 <AddUsers/> 
                </DashboardLayout>
             ) : ( <div>
@@ -92,8 +92,8 @@ function App() {
               </div>
             )
           }
-        />
-
+        /> */}
+ {/* <Route path="/login" element={<LoginPage />} />
  <Route path="/admin" element={!user ? <LoginPage /> : <Navigate to="/admin/dashboard" />} />
  
 
@@ -104,7 +104,43 @@ function App() {
       ? <AdminAddCourse />
       : <Navigate to="/login" />
   }
-/>
+/> */}
+
+{/* ---------------------------------------------------------------------- */}
+
+
+ <Route path="/login" element={<LoginPage />} />
+
+        {/* PROTECTED ROUTES */}
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardHome />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/add-course"
+          element={
+            <ProtectedRoute>
+              <AdminAddCourse />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+              <User_list />
+            </ProtectedRoute>
+          }
+        />
+        {/* -------------------------------------------------------------- */}
+
 
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
@@ -119,7 +155,7 @@ function App() {
     <Route path="/privacy" element={<Privacy/>} />
     <Route path="/contact" element={<Contact/>} />
     <Route path="/enroll" element={<Enroll/>} />
-    <Route path="/admin" element={<Admin/>} />
+    {/* <Route path="/admin" element={<Admin/>} /> */}
     <Route path="/userlist" element={<User_list/>} />
     <Route path="/adduser" element={<AddUsers/>} />
     <Route path="/enrollments-list" element={<EnrollmentsList/>} />

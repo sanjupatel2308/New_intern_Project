@@ -16,7 +16,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="dashboard">
+    <div className="dashboard ">
       {/* Sidebar */}
       <div className="sidebar">
         <h2>Admin Panel</h2>
@@ -26,6 +26,7 @@ const DashboardLayout = () => {
         <Link to="/adduser">Add User</Link>
         <Link to="/admin/add-course">Add Course</Link>
         <Link to="/enrollments-list">Enrollments List</Link>
+          {/* <Link to="/enrollments-list">Enrollments List</Link> */}
       </div>
 
       {/* Main */}
