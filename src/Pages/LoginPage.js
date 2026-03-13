@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import Nav from "../Components/Nav/Nav";
+import DashboardLayout from "../layout/DashboardLayout";
 
 
 function LoginPage({ onLogin }) {
@@ -13,19 +15,23 @@ function LoginPage({ onLogin }) {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/admin");
+            navigate("/dashboard");
         } catch (error) {
             alert("Invalid Credentials");
         }
     };
 
-    return (
+    return  <>
+        <Nav/>
+        <DashboardLayout />
+
         <div style={{
-            height: "90vh",
+            // height: "90vh",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            background: "#f1f5f9"
+            // alignItems: "center",
+            background: "#f1f5f9",
+            position:"absolute", top:"50%" , left:"50%", transform:"translate(-50%, -50%)"
         }}>
             <form onSubmit={handleLogin} style={{
                 background: "#fff",
@@ -65,7 +71,7 @@ function LoginPage({ onLogin }) {
                 </button>
             </form>
         </div>
-    );
+    </>
 }
 
 export default LoginPage;

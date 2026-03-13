@@ -1,6 +1,6 @@
 .dashboard {
   display: flex;
-  height: 100vh;
+  height: 91vh;
   font-family: Arial;
 
 }
@@ -111,3 +111,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+
+/* ------------------------------------ */

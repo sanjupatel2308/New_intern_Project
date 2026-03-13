@@ -1,132 +1,232 @@
-import React, { useState } from "react";
-import { db } from "../firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useState } from "react";
+import { db, storage } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Nav from "../Components/Nav/Nav";
+import DashboardLayout from "../layout/DashboardLayout";
 
-const AdminAddCourse = () => {
 
-  const [course, setCourse] = useState({
-    title: "",
-    description: "",
-    category: "",
-    level: "",
-    duration: "",
-    price: "",
-    instructor: "",
-    image: ""
-  });
+export default function AdminAddCourse(){
 
-  const handleChange = (e) => {
-    setCourse({ ...course, [e.target.name]: e.target.value });
-  };
+const [course,setCourse] = useState({
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+title:"",
+category:"",
+level:"",
+price:"",
+instructor:"",
+description:"",
+skills:"",
+requirements:"",
+curriculum:"",
+duration:"",
+language:"",
+quizzes:"",
+assignments:"",
+previewVideo:""
 
-    try {
-      await addDoc(collection(db, "courses"), {
-        ...course,
-        price: Number(course.price),
-        students: 0,
-        rating: 0,
-        createdAt: serverTimestamp()
-      });
+})
 
-      alert("Course Added Successfully ✅");
 
-      setCourse({
-        title: "",
-        description: "",
-        category: "",
-        level: "",
-        duration: "",
-        price: "",
-        instructor: "",
-        image: ""
-      });
 
-    } catch (error) {
-      console.error(error);
-      alert("Error adding course ❌");
-    }
-  };
+const [image,setImage] = useState(null)
 
-  return (
-    <div className="container mt-5">
-      <h2>Add New Course</h2>
+const handleChange = (e)=>{
 
-      <form onSubmit={handleSubmit}>
+setCourse({
+...course,
+[e.target.name]:e.target.value
+})
 
-        <input type="text" name="title"
-          placeholder="Course Title"
-          className="form-control mb-3"
-          value={course.title}
-          onChange={handleChange}
-          required />
+}
 
-        <textarea name="description"
-          placeholder="Course Description"
-          className="form-control mb-3"
-          value={course.description}
-          onChange={handleChange}
-          required />
 
-        <select name="category"
-          className="form-control mb-3"
-          value={course.category}
-          onChange={handleChange}
-          required>
-          <option value="">Select Category</option>
-          <option>Programming</option>
-          <option>Design</option>
-          <option>Marketing</option>
-          <option>Business</option>
-        </select>
+const handleSubmit = async(e)=>{
 
-        <select name="level"
-          className="form-control mb-3"
-          value={course.level}
-          onChange={handleChange}
-          required>
-          <option value="">Select Level</option>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
+e.preventDefault()
 
-        <input type="text" name="duration"
-          placeholder="Duration (e.g. 10 hours)"
-          className="form-control mb-3"
-          value={course.duration}
-          onChange={handleChange}
-          required />
+try{
 
-        <input type="number" name="price"
-          placeholder="Price"
-          className="form-control mb-3"
-          value={course.price}
-          onChange={handleChange}
-          required />
+let imageUrl=""
 
-        <input type="text" name="instructor"
-          placeholder="Instructor Name"
-          className="form-control mb-3"
-          value={course.instructor}
-          onChange={handleChange}
-          required />
+if(image){
 
-        <input type="text" name="image"
-          placeholder="Image URL"
-          className="form-control mb-3"
-          value={course.image}
-          onChange={handleChange} />
+const imageRef = ref(storage,"courses/"+image.name)
 
-        <button className="btn btn-primary w-100">
-          Add Course
-        </button>
+await uploadBytes(imageRef,image)
 
-      </form>
-    </div>
-  );
-};
+imageUrl = await getDownloadURL(imageRef)
 
-export default AdminAddCourse;
+}
+
+await addDoc(collection(db,"courses"),{
+
+title:course.title,
+category:course.category,
+level:course.level,
+price:course.price,
+instructor:course.instructor,
+description:course.description,
+
+skills:course.skills.split(","),
+requirements:course.requirements.split(","),
+curriculum:course.curriculum.split(","),
+
+duration:course.duration,
+language:course.language,
+quizzes:course.quizzes,
+assignments:course.assignments,
+
+previewVideo:course.previewVideo,
+
+image:imageUrl,
+
+students:0,
+
+createdAt:new Date()
+
+})
+
+alert("Course Added Successfully")
+
+}catch(err){
+
+console.log(err)
+
+}
+
+}
+
+return <>
+<Nav/>
+<DashboardLayout/>
+
+
+<div className="admin-course-container"  style={{position:"absolute", top:"7%", left:"25%" , width:"80%"}}>
+
+<h2>Add New Course</h2>
+
+<form onSubmit={handleSubmit} className="course-form">
+
+<h3 className="form-section">Basic Information</h3>
+
+<input
+type="text"
+name="title"
+placeholder="Course Title"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="category"
+placeholder="Category"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="level"
+placeholder="Level"
+onChange={handleChange}
+/>
+
+<input
+type="number"
+name="price"
+placeholder="Price"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="instructor"
+placeholder="Instructor Name"
+onChange={handleChange}
+/>
+
+<textarea
+name="description"
+placeholder="Course Description"
+onChange={handleChange}
+/>
+
+<h3 className="form-section">Course Details</h3>
+
+<input
+type="text"
+name="skills"
+placeholder="Skills (comma separated)"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="requirements"
+placeholder="Requirements (comma separated)"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="curriculum"
+placeholder="Curriculum topics (comma separated)"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="duration"
+placeholder="Duration"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="language"
+placeholder="Language"
+onChange={handleChange}
+/>
+
+<input
+type="number"
+name="quizzes"
+placeholder="Quizzes"
+onChange={handleChange}
+/>
+
+<input
+type="number"
+name="assignments"
+placeholder="Assignments"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+name="previewVideo"
+placeholder="Preview Video URL"
+onChange={handleChange}
+/>
+
+<input
+type="file"
+onChange={(e)=>setImage(e.target.files[0])}
+/>
+
+<button type="submit" className="submit-btn">
+
+Add Course
+
+</button>
+
+</form>
+
+
+
+
+</div>
+
+</>
+
+}

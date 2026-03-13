@@ -33,6 +33,7 @@ import ScrollToTop from './ScrollToTop';
 import AdminAddCourse from './Pages/AdminAddCourse';
 import ProtectedRoute from './Components/ProtectedRoute';
 import DashboardHome from './layout/DashboardHome';
+import EditCourse from './Components/Course-details/EditCourse';
 
 
 
@@ -75,10 +76,10 @@ function App() {
 
   if (loading) return <h2>Loading...</h2>;
   return (
-   
+
     <Routes>
-{/* ------------------------------------------------------------------------- */}
-        {/* <Route
+      {/* ------------------------------------------------------------------------- */}
+      {/* <Route
           path="/admin"
           element={
             user ? (
@@ -93,7 +94,7 @@ function App() {
             )
           }
         /> */}
- {/* <Route path="/login" element={<LoginPage />} />
+      {/* <Route path="/login" element={<LoginPage />} />
  <Route path="/admin" element={!user ? <LoginPage /> : <Navigate to="/admin/dashboard" />} />
  
 
@@ -106,68 +107,93 @@ function App() {
   }
 /> */}
 
-{/* ---------------------------------------------------------------------- */}
+      {/* ---------------------------------------------------------------------- */}
 
 
- <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
 
-        {/* PROTECTED ROUTES */}
+      {/* PROTECTED ROUTES */}
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardHome />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <DashboardHome />
+          </ProtectedRoute>
+        }
+      />
 
-        <Route
-          path="/admin/add-course"
-          element={
-            <ProtectedRoute>
-              <AdminAddCourse />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/admin/add-course"
+        element={
+          <ProtectedRoute>
+            <AdminAddCourse />
+          </ProtectedRoute>
+        }
+      />
 
-        <Route
-          path="/users"
-          element={
-            <ProtectedRoute>
-              <User_list />
-            </ProtectedRoute>
-          }
-        />
-        {/* -------------------------------------------------------------- */}
+      <Route
+        path="/userlist"
+        element={
+          <ProtectedRoute>
+            <User_list />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/adduser"
+        element={
+          <ProtectedRoute>
+            <AddUsers />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/enrollments-list"
+        element={
+          <ProtectedRoute>
+            <EnrollmentsList />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/edit-course/"
+        element={
+          <ProtectedRoute>
+            <EditCourse />
+          </ProtectedRoute>
+        }
+      />
+      {/* -------------------------------------------------------------- */}
 
 
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/terms" element={<Terms />} />
-    <Route path="/courses" element={<Course/>} />
-    <Route path="/course-details" element={<CourseDetails/>} />
-    <Route path="/instructors" element={<Instructors/>} />
-    {/* <Route path="/pricing" element={<Pricing/>} /> */}
-    <Route path="/blog" element={<Blog/>} />
-    <Route path="/blog-details" element={<Blog_Details/>} />
-    <Route path="/instructor-profile" element={<InstructorProfile/>} />
-    <Route path="/privacy" element={<Privacy/>} />
-    <Route path="/contact" element={<Contact/>} />
-    <Route path="/enroll" element={<Enroll/>} />
-    {/* <Route path="/admin" element={<Admin/>} /> */}
-    <Route path="/userlist" element={<User_list/>} />
-    <Route path="/adduser" element={<AddUsers/>} />
-    <Route path="/enrollments-list" element={<EnrollmentsList/>} />
-    
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/courses" element={<Course />} />
+      <Route path="/course-details" element={<CourseDetails />} />
+      <Route path="/instructors" element={<Instructors />} />
+      {/* <Route path="/pricing" element={<Pricing/>} /> */}
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog-details" element={<Blog_Details />} />
+      <Route path="/instructor-profile" element={<InstructorProfile />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/enroll" element={<Enroll />} />
+      {/* <Route path="/admin" element={<Admin/>} /> */}
+      <Route path="/userlist" element={<User_list />} />
+      <Route path="/adduser" element={<AddUsers />} />
+      <Route path="/enrollments-list" element={<EnrollmentsList />} />
 
 
 
 
-    {/* ------------------------------Database ----------------- */}
 
-       
-  </Routes>
+      {/* ------------------------------Database ----------------- */}
+
+
+    </Routes>
 
 
   );

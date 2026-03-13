@@ -59,7 +59,7 @@ export default function Nav(){
               <Link to="/privacy">Privacy</Link>
             </li>
             <li>
-              <Link to="/admin">Admin</Link>
+              <Link to="/login">Admin</Link>
             </li>
           </ul>
         </li>

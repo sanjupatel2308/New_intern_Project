@@ -7997,3 +7997,156 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/* ---------------------------------- */
+
+.admin-course-container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+background:#fff;
+}
+
+.admin-course-container h2{
+text-align:center;
+margin-bottom:30px;
+font-weight:600;
+color:#333;
+}
+
+.course-form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.course-form input,
+.course-form textarea{
+
+width:100%;
+padding:12px 14px;
+border:1px solid #ddd;
+border-radius:6px;
+font-size:14px;
+outline:none;
+transition:0.3s;
+background:#fafafa;
+
+}
+
+.course-form textarea{
+
+grid-column:1/3;
+min-height:120px;
+resize:none;
+
+}
+
+.course-form input:focus,
+.course-form textarea:focus{
+
+border-color:#0d6efd;
+box-shadow:0 0 5px rgba(13,110,253,0.3);
+background:white;
+
+}
+
+.form-section{
+
+grid-column:1/3;
+font-weight:600;
+font-size:16px;
+color:#444;
+border-bottom:1px solid #eee;
+padding-bottom:6px;
+margin-top:10px;
+
+}
+
+.submit-btn{
+
+grid-column:1/3;
+padding:14px;
+background:#0d6efd;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+.submit-btn:hover{
+
+background:#0b5ed7;
+
+}
+
+.course-form input[type="file"]{
+
+grid-column:1/3;
+background:white;
+border:1px dashed #ccc;
+padding:10px;
+
+}
+
+
+/* Tablet */
+
+@media(max-width:768px){
+
+.course-form{
+
+grid-template-columns:1fr;
+
+}
+
+.course-form textarea{
+
+grid-column:auto;
+
+}
+
+.submit-btn{
+
+grid-column:auto;
+
+}
+
+.form-section{
+
+grid-column:auto;
+
+}
+
+}
+
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.admin-course-container{
+
+padding:20px 10px;
+
+}
+
+.course-form input,
+.course-form textarea{
+
+font-size:13px;
+padding:10px;
+
+}
+
+.submit-btn{
+
+font-size:14px;
+
+}
+
+}
