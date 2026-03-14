@@ -1,26 +1,91 @@
-//npm install firebase
+[
+{
+"title": "Full Stack Web Development",
+"category": "Web Development",
+"level": "Beginner to Advanced",
+"price": "12000",
+"instructor": "SDtech Solutions Expert Team",
+"duration": "6 Months",
+"language": "Hindi + English",
+"image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800",
+"description": "Learn complete web development including frontend and backend technologies. Students will build real-world web applications using modern tools and frameworks such as React, Node.js, Express and MongoDB.",
+"skills": "HTML, CSS, JavaScript, React.js, Node.js, Express.js, MongoDB, REST API, Git, Deployment",
+"requirements": "Basic computer knowledge, laptop with internet connection, interest in coding",
+"curriculum": "HTML Fundamentals, CSS Styling, JavaScript Programming, React Frontend Development, Node.js Backend, MongoDB Database, Authentication, Full Stack Project Development",
+"quizzes": "Module based quizzes and final assessment",
+"assignments": "Portfolio website, To-do app, REST API project, Full Stack application",
+"previewVideo": "https://www.youtube.com/watch?v=nu_pCVPKzTk"
+},
 
+{
+"title": "Frontend Development with React",
+"category": "Frontend Development",
+"level": "Beginner to Intermediate",
+"price": "9000",
+"instructor": "SDtech Solutions Expert Team",
+"duration": "4 Months",
+"language": "Hindi + English",
+"image": "https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=800",
+"description": "Learn how to build modern and responsive websites using HTML, CSS, JavaScript and React.js. This course focuses on UI development and interactive web interfaces.",
+"skills": "HTML5, CSS3, JavaScript, React.js, Responsive Design, Bootstrap, Git",
+"requirements": "Basic computer knowledge and interest in web development",
+"curriculum": "HTML Basics, CSS Layouts, JavaScript Fundamentals, React Components, React Hooks, Routing and Project Development",
+"quizzes": "Weekly quizzes after each module",
+"assignments": "Landing page design, portfolio website, React application project",
+"previewVideo": "https://www.youtube.com/watch?v=bMknfKXIFA8"
+},
 
+{
+"title": "Backend Development with Node.js",
+"category": "Backend Development",
+"level": "Intermediate",
+"price": "10000",
+"instructor": "SDtech Solutions Expert Team",
+"duration": "4 Months",
+"language": "Hindi + English",
+"image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800",
+"description": "This course focuses on server-side development using Node.js and Express.js. Students will learn how to create APIs, handle databases and manage authentication systems.",
+"skills": "Node.js, Express.js, REST API Development, MongoDB, Authentication, JWT, Server Deployment",
+"requirements": "Basic JavaScript knowledge and computer fundamentals",
+"curriculum": "Node.js Introduction, Express Framework, REST API Development, MongoDB Integration, Authentication System, Backend Project",
+"quizzes": "Module tests and coding challenges",
+"assignments": "API development project, database project and backend application",
+"previewVideo": "https://www.youtube.com/watch?v=TlB_eWDSMt4"
+},
 
+{
+"title": "Python Programming for Beginners",
+"category": "Programming",
+"level": "Beginner",
+"price": "8000",
+"instructor": "SDtech Solutions Expert Team",
+"duration": "3 Months",
+"language": "Hindi + English",
+"image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=800",
+"description": "Learn Python programming from scratch and build strong programming fundamentals. The course includes real-world examples and beginner-friendly projects.",
+"skills": "Python Basics, Data Structures, Functions, File Handling, Problem Solving",
+"requirements": "Basic computer knowledge and interest in programming",
+"curriculum": "Python Basics, Variables and Data Types, Loops and Conditions, Functions, File Handling, Mini Projects",
+"quizzes": "Topic based quizzes and final assessment",
+"assignments": "Calculator program, file manager project, mini Python applications",
+"previewVideo": "https://www.youtube.com/watch?v=_uQrJ0TkZlc"
+},
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCNnGjr9xlKPOjTpZalpZHmCO8BBlQgVnc",
-  authDomain: "sdtechsolutions.firebaseapp.com",
-  projectId: "sdtechsolutions",
-  storageBucket: "sdtechsolutions.firebasestorage.app",
-  messagingSenderId: "162929626432",
-  appId: "1:162929626432:web:15947b41357534aa51bea5",
-  measurementId: "G-58B6MLJTCJ"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+{
+"title": "Digital Marketing",
+"category": "Marketing",
+"level": "Beginner to Intermediate",
+"price": "7000",
+"instructor": "SDtech Solutions Expert Team",
+"duration": "3 Months",
+"language": "Hindi + English",
+"image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+"description": "Learn how to promote businesses online using SEO, social media marketing, content marketing and paid advertising strategies.",
+"skills": "SEO, Social Media Marketing, Google Ads, Content Marketing, Analytics",
+"requirements": "Basic internet knowledge and interest in marketing",
+"curriculum": "Digital Marketing Basics, SEO Optimization, Social Media Marketing, Google Ads Campaigns, Marketing Analytics",
+"quizzes": "Marketing strategy quizzes",
+"assignments": "Create marketing campaign, SEO optimization task, social media strategy",
+"previewVideo": "https://www.youtube.com/watch?v=nU-IIXBWlS4"
+}
+]

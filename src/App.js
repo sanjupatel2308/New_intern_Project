@@ -15,25 +15,18 @@ import Privacy from './Components/Privacy/Privacy';
 import Contact from './Components/Contact/Contact';
 import Enroll from './Components/Enroll/Enroll';
 import CourseDetails from './Components/Course-details/Course-details';
-import { db } from "./firebase";
-import { collection, addDoc } from "firebase/firestore";
-import Admin from './Components/Dashbord/admin';
-import DashboardLayout from './layout/DashboardLayout';
-import UsersPage from './Pages/UsersPage';
 import LoginPage from './Pages/LoginPage';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import User_list from './Pages/User_list';
 import AddUsers from './Pages/Add_user';
-import Nav from './Components/Nav/Nav';
-import { Navigate, Route, Router, Routes } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 import EnrollmentsList from './Pages/EnrollmentsList';
-import UserProfile from './Components/User_profile/UserProfile';
-import ScrollToTop from './ScrollToTop';
 import AdminAddCourse from './Pages/AdminAddCourse';
 import ProtectedRoute from './Components/ProtectedRoute';
 import DashboardHome from './layout/DashboardHome';
 import EditCourse from './Components/Course-details/EditCourse';
+import UploadCourses from './Pages/UploadCourses';
 
 
 
@@ -47,21 +40,6 @@ function App() {
     AOS.init({ duration: 1000, once: true });
     AOS.refresh();
   }, []);
-
-  const addUser = async () => {
-    try {
-      await addDoc(collection(db, "users"), {
-        name: "Sanju",
-        age: 25,
-        createdAt: new Date()
-      });
-      alert("User Added Successfully ✅");
-    } catch (error) {
-      console.error("Error adding user: ", error);
-    }
-  };
-
-
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -172,7 +150,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/courses" element={<Course />} />
-      <Route path="/course-details" element={<CourseDetails />} />
+      {/* <Route path="/course-details" element={<CourseDetails />} /> */}
       <Route path="/instructors" element={<Instructors />} />
       {/* <Route path="/pricing" element={<Pricing/>} /> */}
       <Route path="/blog" element={<Blog />} />
@@ -185,10 +163,10 @@ function App() {
       <Route path="/userlist" element={<User_list />} />
       <Route path="/adduser" element={<AddUsers />} />
       <Route path="/enrollments-list" element={<EnrollmentsList />} />
+        <Route path="/course/:id" element={<CourseDetails/>}/>
 
 
-
-
+<Route path="/upload-courses" element={<UploadCourses />} />
 
       {/* ------------------------------Database ----------------- */}
 

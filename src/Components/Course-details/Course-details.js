@@ -1,8 +1,43 @@
 import ScrollToTop from "../../ScrollToTop";
 import Footer from "../Footer/Footer";
 import Nav from "../Nav/Nav";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../firebase"
 
 export default function CourseDetails() {
+
+
+    
+const {id} = useParams()
+
+const [course,setCourse] = useState(null)
+
+useEffect(()=>{
+
+const fetchCourse = async()=>{
+
+const docRef = doc(db,"courses",id)
+
+const docSnap = await getDoc(docRef)
+
+if(docSnap.exists()){
+
+setCourse(docSnap.data())
+
+}
+
+}
+
+fetchCourse()
+
+},[id])
+
+if(!course){
+return <h2>Loading...</h2>
+}
+
 
 return(
 <>
@@ -36,11 +71,11 @@ return(
 <div className="hero-content">
 
 <div className="course-badge">
-<span className="category">Web Development</span>
-<span className="level">Intermediate</span>
+{/* <span className="category">Web Development</span> */}
+<span className="level">{course.level}</span>
 </div>
 
-<h1>Full Stack Web Development Masterclass</h1>
+<h1>{course.title}</h1>
 
 <p className="course-subtitle">
 Learn how to build complete web applications using modern technologies like
@@ -48,7 +83,7 @@ HTML, CSS, JavaScript, React, Node.js and MongoDB. This course focuses on
 hands-on learning so that you can create real world full stack projects.
 </p>
 
-<div className="instructor-card">
+{/* <div className="instructor-card">
 
 <img
 src="assets/img/person/person-m-8.webp"
@@ -72,7 +107,7 @@ className="instructor-image"
 </div>
 
 </div>
-</div>
+</div> */}
 
 </div>
 
@@ -80,9 +115,9 @@ className="instructor-image"
 <div className="hero-image">
 
 <img
-src="assets/img/education/courses-8.webp"
+src={course.image}
 alt="Course Preview"
-className="img-fluid"
+className="img-fluid "
 />
 
 </div>
@@ -131,12 +166,10 @@ Reviews
 <h3>Course Description</h3>
 
 <p>
-Full Stack Web Development is one of the most in-demand skills in the
-technology industry. In this course you will learn how to build
-modern and scalable web applications from start to finish.
+{course.description}
 </p>
 
-<p>
+{/* <p>
 You will begin by learning the fundamentals of frontend development
 using HTML, CSS and modern JavaScript. After that you will move into
 React to build dynamic user interfaces.
@@ -147,7 +180,7 @@ In the backend section you will work with Node.js and Express to
 create APIs, handle authentication and connect your applications
 to databases like MongoDB. By the end of this course you will be able
 to build and deploy complete full stack applications.
-</p>
+</p> */}
 
 </div>
 
@@ -165,13 +198,13 @@ to build and deploy complete full stack applications.
 <div className="skill-item">
 <div className="skill-icon"><i className="bi bi-code-slash"/></div>
 <div className="skill-content">
-<h5>Frontend Development</h5>
-<p>HTML5, CSS3, JavaScript, React</p>
+<h5>{course.title}</h5>
+<p>{course.skills}</p>
 </div>
 </div>
 </div>
 
-<div className="col-md-6">
+{/* <div className="col-md-6">
 <div className="skill-item">
 <div className="skill-icon"><i className="bi bi-server"/></div>
 <div className="skill-content">
@@ -199,7 +232,7 @@ to build and deploy complete full stack applications.
 <p>Authentication, JWT, Testing</p>
 </div>
 </div>
-</div>
+</div> */}
 
 </div>
 </div>
@@ -214,15 +247,15 @@ to build and deploy complete full stack applications.
 
 <ul className="requirements-list">
 
-<li><i className="bi bi-check2"/> Basic understanding of HTML and CSS</li>
+<li><i className="bi bi-check2"/>{course.requirements}</li>
 
-<li><i className="bi bi-check2"/> Basic knowledge of JavaScript</li>
+{/* <li><i className="bi bi-check2"/> Basic knowledge of JavaScript</li>
 
 <li><i className="bi bi-check2"/> Computer with internet connection</li>
 
 <li><i className="bi bi-check2"/> Code editor such as VS Code</li>
 
-<li><i className="bi bi-check2"/> Motivation to learn and build projects</li>
+<li><i className="bi bi-check2"/> Motivation to learn and build projects</li> */}
 
 </ul>
 
@@ -239,15 +272,15 @@ to build and deploy complete full stack applications.
 <h3>Course Curriculum</h3>
 
 <ul>
-
-<li>Introduction to Web Development</li>
-<li>HTML and CSS Fundamentals</li>
+<li>{course.curriculum}</li>
+{/* <li>Introduction to Web Development</li> */}
+{/* <li>HTML and CSS Fundamentals</li>
 <li>JavaScript Essentials</li>
 <li>React Frontend Development</li>
 <li>Node.js Backend Development</li>
 <li>MongoDB Database Integration</li>
 <li>User Authentication System</li>
-<li>Building a Complete Full Stack Project</li>
+<li>Building a Complete Full Stack Project</li> */}
 
 </ul>
 
@@ -287,14 +320,14 @@ step by step explanation of full stack development concepts.
 <div className="card-header">
 
 <div className="price-display">
-<span className="current-price">$149</span>
-<span className="original-price">$249</span>
-<span className="discount">40% OFF</span>
+<span className="current-price">₹{course.price }</span>
+<span className="original-price">₹{(( course.Price * 1 ) + 2000)}</span>
+<span className="discount"> 40% OFF</span>
 </div>
 
 <div className="enrollment-count">
 <i className="bi bi-people"/>
-<span>3,892 students enrolled</span>
+<span>{course.students || 0}  students enrolled</span>
 </div>
 
 </div>
@@ -347,27 +380,27 @@ step by step explanation of full stack development concepts.
 
 <div className="detail-row">
 <span className="detail-label">Duration</span>
-<span className="detail-value">14 Weeks</span>
+<span className="detail-value">{course.duration }</span>
 </div>
 
 <div className="detail-row">
 <span className="detail-label">Skill Level</span>
-<span className="detail-value">Intermediate</span>
+<span className="detail-value">{course.level}</span>
 </div>
 
 <div className="detail-row">
 <span className="detail-label">Language</span>
-<span className="detail-value">English</span>
+<span className="detail-value">{course.language}</span>
 </div>
 
 <div className="detail-row">
 <span className="detail-label">Quizzes</span>
-<span className="detail-value">20</span>
+<span className="detail-value">{course.quizzes || 5}</span>
 </div>
 
 <div className="detail-row">
 <span className="detail-label">Assignments</span>
-<span className="detail-value">10</span>
+<span className="detail-value">{course.assignments || 10}</span>
 </div>
 
 </div>

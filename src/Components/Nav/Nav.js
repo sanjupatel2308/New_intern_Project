@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 export default function Nav(){
     return <>   
     <header id="header" className="header d-flex align-items-center sticky-top">
-  <div className="container-fluid container-xl position-relative d-flex align-items-center">
+  <div className="container-fluid container-xl position-relative d-flex align-items-center ">
     <Link to="/" className="logo d-flex align-items-center me-auto">
       {/* Uncomment the line below if you also wish to use an image logo */}
-      {/* <img src="assets/img/logo.webp" alt=""/> */}
-      <h1 className="sitename">Learner</h1>
+      {/* <img src="assets/img/SD tech Logo.png" alt="" className="bg-light" width={"130px"} height={"130px"}/> */}
+      <h1 className="sitename"  style={{textAlign:"center"}}>SD Tech  <br/> Solutions</h1>
     </Link>
     <nav id="navmenu" className="navmenu">
       <ul>
@@ -32,7 +32,7 @@ export default function Nav(){
           <Link to="/pricing">Pricing</Link>
         </li> */}
         <li>
-          <Link to="/blog">Blog</Link>
+          {/* <Link to="/blog">Blog</Link> */}
         </li>
         <li className="dropdown">
           <a href="#">
@@ -41,16 +41,16 @@ export default function Nav(){
           </a>
           <ul>
             <li>
-              <Link to="/course-details">Course Details</Link>
+              {/* <Link to="/course-details">Course Details</Link> */}
             </li>
             <li>
-              <Link to="/instructor-profile">Instructor Profile</Link>
+              {/* <Link to="/instructor-profile">Instructor Profile</Link> */}
             </li>
             <li>
               <Link to="/enroll">Enroll</Link>
             </li>
             <li>
-              <Link to="/blog-details">Blog Details</Link>
+              {/* <Link to="/blog-details">Blog Details</Link> */}
             </li>
             <li>
               <Link to="/terms">Terms</Link>
@@ -63,7 +63,7 @@ export default function Nav(){
             </li>
           </ul>
         </li>
-        <li className="dropdown">
+        {/* <li className="dropdown">
           <a href="#">
             <span>Dropdown</span>{" "}
             <i className="bi bi-chevron-down toggle-dropdown" />
@@ -105,7 +105,7 @@ export default function Nav(){
               <a href="#">Dropdown 4</a>
             </li>
           </ul>
-        </li>
+        </li> */}
         <li>
           <Link to="/contact">Contact</Link>
         </li>

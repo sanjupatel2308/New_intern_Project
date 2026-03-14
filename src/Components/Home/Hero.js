@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
     return <>
  <section id="home-hero" className="courses-hero section light-background">
@@ -58,12 +60,12 @@ export default function Hero() {
 
             {/* BUTTONS */}
             <div className="hero-buttons">
-              <a href="#courses" className="btn btn-primary">
+              <Link to="/enroll" className="btn btn-primary">
                 Apply for Internship
-              </a>
-              <a href="#about" className="btn btn-outline">
+              </Link>
+              <Link to="/about" className="btn btn-outline">
                 Learn More
-              </a>
+              </Link>
             </div>
 
             {/* FEATURES */}

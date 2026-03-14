@@ -9,13 +9,15 @@ doc,
 updateDoc
 } from "firebase/firestore";
 import { db } from "../../firebase";
+import Nav from "../Nav/Nav";
+import DashboardLayout from "../../layout/DashboardLayout";
 
 const EditCourse = () => {
 
 const [courses,setCourses] = useState([]);
 const [editingCourse,setEditingCourse] = useState(null);
 const [formData,setFormData] = useState({});
-
+  const [filteredCourses, setFilteredCourses] = useState([])
 const coursesRef = collection(db,"courses");
 
 
@@ -32,6 +34,8 @@ id:doc.id
 );
 
 };
+
+
 
 useEffect(()=>{
 fetchCourses();
@@ -71,7 +75,7 @@ setFormData({
 });
 
 };
-
+  const [search, setSearch] = useState("")
 
 // update course
 const handleUpdate = async(e)=>{
@@ -89,9 +93,12 @@ fetchCourses();
 };
 
 
-return (
+return <>
+<Nav/>
+<DashboardLayout/>
 
-<div className="container mt-4">
+<div className="container mt-4" style={{position: "absolute" , top:"10%" , left:"20%"}}>
+
 
 <h2>All Courses</h2>
 
@@ -248,8 +255,24 @@ value={formData.previewVideo || ""}
 onChange={handleChange}
 placeholder="Preview Video"
 />
+{formData.image && (
+<img
+src={formData.image}
+style={{width:"200px",marginTop:"10px"}}
+/>
+)}
 
-<button className="btn btn-success">
+<input
+type="text"
+name="image"
+value={formData.image || ""}
+onChange={handleChange}
+placeholder="Image URL"
+/>
+<br/>
+<br/>
+
+<button className="btn btn-success" >
 Update Course
 </button>
 
@@ -259,7 +282,7 @@ Update Course
 
 </div>
 
-);
+</>
 
 };
 

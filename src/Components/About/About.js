@@ -26,7 +26,7 @@ export default function About() {
       <div className="row align-items-center">
         <div className="col-lg-6" data-aos="fade-up" data-aos-delay={200}>
           <img
-            src="assets/img/education/education-square-2.webp"
+            src="/assets/img/education/education-square-2.webp"
             alt="About Us"
             className="img-fluid rounded-4"
           />
@@ -34,25 +34,27 @@ export default function About() {
         <div className="col-lg-6" data-aos="fade-up" data-aos-delay={300}>
           <div className="about-content">
             <span className="subtitle">About Us</span>
-            <h2>Empowering Future Leaders Through Quality Education</h2>
+            <h2>Building Skilled Professionals Through Modern Education</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Our institute is dedicated to providing high-quality education and
+              practical training in modern technologies. We focus on building
+              real-world skills that help students grow in their careers and
+              succeed in today's competitive industry. Our learning approach
+              combines expert mentorship, hands-on projects, and industry
+              focused curriculum to prepare students for real challenges.
             </p>
             <div className="stats-row">
               <div className="stats-item">
-                <span className="count">15</span>
+                <span className="count">10+</span>
                 <p>Years of Experience</p>
               </div>
               <div className="stats-item">
-                <span className="count">200+</span>
-                <p>Expert Instructors</p>
+                <span className="count">50+</span>
+                <p>Professional Courses</p>
               </div>
               <div className="stats-item">
-                <span className="count">50k+</span>
-                <p>Students Worldwide</p>
+                <span className="count">10k+</span>
+                <p>Successful Students</p>
               </div>
             </div>
           </div>
@@ -66,9 +68,9 @@ export default function About() {
             </div>
             <h3>Our Mission</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-              Excepteur sint occaecat cupidatat non proident.
+              Our mission is to empower students with practical knowledge,
+              industry relevant skills, and innovative thinking so they can
+              build successful careers in technology and business fields.
             </p>
           </div>
         </div>
@@ -79,9 +81,9 @@ export default function About() {
             </div>
             <h3>Our Vision</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-              Excepteur sint occaecat cupidatat non proident.
+              Our vision is to become a trusted learning platform that helps
+              students transform their future through modern education,
+              advanced technologies, and real-world experience.
             </p>
           </div>
         </div>
@@ -92,9 +94,9 @@ export default function About() {
             </div>
             <h3>Our Values</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-              Excepteur sint occaecat cupidatat non proident.
+              We believe in quality education, continuous learning,
+              transparency, innovation, and supporting every student in
+              achieving their personal and professional goals.
             </p>
           </div>
         </div>
@@ -107,31 +109,32 @@ export default function About() {
         >
           <div className="achievements">
             <span className="subtitle">Why Choose Us</span>
-            <h2>Transforming Education for a Better Tomorrow</h2>
+            <h2>Learn Skills That Shape Your Future</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              We provide practical learning with modern tools and technologies
+              that help students build strong technical foundations and prepare
+              for real career opportunities.
             </p>
             <ul className="achievements-list">
               <li>
-                <i className="bi bi-check-circle-fill" /> Flexible learning
-                options and schedules
+                <i className="bi bi-check-circle-fill" /> Industry focused
+                courses and curriculum
               </li>
               <li>
-                <i className="bi bi-check-circle-fill" /> Industry-experienced
-                instructors
+                <i className="bi bi-check-circle-fill" /> Experienced mentors
+                and trainers
               </li>
               <li>
-                <i className="bi bi-check-circle-fill" /> Interactive and
-                engaging course content
+                <i className="bi bi-check-circle-fill" /> Hands-on projects and
+                real-world practice
               </li>
               <li>
                 <i className="bi bi-check-circle-fill" /> Career guidance and
-                placement support
+                placement assistance
               </li>
               <li>
-                <i className="bi bi-check-circle-fill" /> State-of-the-art
-                online learning platform
+                <i className="bi bi-check-circle-fill" /> Flexible learning and
+                modern online platform
               </li>
             </ul>
             <a href="#" className="btn-explore">
@@ -148,21 +151,21 @@ export default function About() {
             <div className="row g-3">
               <div className="col-6">
                 <img
-                  src="assets/img/education/education-1.webp"
+                  src="/assets/img/education/education-1.webp"
                   alt="Campus Life"
                   className="img-fluid rounded-3"
                 />
               </div>
               <div className="col-6">
                 <img
-                  src="assets/img/education/students-3.webp"
+                  src="/assets/img/education/students-3.webp"
                   alt="Student Achievement"
                   className="img-fluid rounded-3"
                 />
               </div>
               <div className="col-12 mt-3">
                 <img
-                  src="assets/img/education/campus-8.webp"
+                  src="/assets/img/education/campus-8.webp"
                   alt="Our Campus"
                   className="img-fluid rounded-3"
                 />
